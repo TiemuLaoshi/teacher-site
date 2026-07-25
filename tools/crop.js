@@ -48,6 +48,8 @@ function arg(name, fallback) {
 
   const top = Number(arg('top', 0));
   const h = Number(arg('h', 900));
+  const left = Number(arg('left', 0));
+  const w = Number(arg('w', dims.w - left));
   const out = arg('out', `ref-${top}-${top + h}`);
 
   const outDir = path.resolve('scratch');
@@ -56,14 +58,14 @@ function arg(name, fallback) {
   // Через реальный .html-файл, а не setContent: страница about:blank не имеет
   // права грузить file://-ресурсы, и ожидание load зависает.
   const holder = path.join(outDir, '_crop.html');
-  fs.writeFileSync(holder, `<body style="margin:0"><img src="${url}"
-    style="display:block;width:${dims.w}px;margin-top:-${top}px"></body>`);
-  await page.setViewport({ width: dims.w, height: h });
+  fs.writeFileSync(holder, `<body style="margin:0;overflow:hidden"><img src="${url}"
+    style="display:block;width:${dims.w}px;margin-top:-${top}px;margin-left:-${left}px"></body>`);
+  await page.setViewport({ width: w, height: h });
   await page.goto('file:///' + holder.replace(/\\/g, '/'), { waitUntil: 'load' });
 
   const outPath = path.join(outDir, out + '.png');
   await page.screenshot({ path: outPath });
-  console.log(`${outPath} — фрагмент ${dims.w}×${h} с ${top}px (эталон ${dims.w}×${dims.h})`);
+  console.log(`${outPath} — фрагмент ${w}×${h} с (${left},${top}) (исходник ${dims.w}×${dims.h})`);
 
   await browser.close();
 })();

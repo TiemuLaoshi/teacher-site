@@ -45,6 +45,9 @@ function arg(name, fallback) {
   await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
   await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
+  // Дать доиграть входным анимациям (fadeUp ~.8s), иначе в кадр попадёт
+  // недоигранный кадр и сравнение с эталоном будет ложно расходиться.
+  await new Promise((r) => setTimeout(r, Number(arg('settle', 1000))));
 
   const target = sel ? await page.$(sel) : page;
   if (!target) throw new Error('Селектор не найден: ' + sel);
