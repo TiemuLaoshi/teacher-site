@@ -1,0 +1,56 @@
+/**
+ * Скриншот страницы для цикла сверки с макетом (Design_Mockup/screenshot_skill.md).
+ *
+ *   node tools/shot.js                       — весь index.html, десктоп 1440
+ *   node tools/shot.js --width 390 --out m   — мобильная ширина
+ *   node tools/shot.js --sel "#hero"         — только одна секция
+ *
+ * Использует уже установленный в системе Chrome (puppeteer-core, без загрузки
+ * Chromium). Результат — scratch/<out>.png, папка в .gitignore.
+ */
+const fs = require('fs');
+const path = require('path');
+const puppeteer = require('puppeteer-core');
+
+const CHROME_CANDIDATES = [
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+];
+
+function arg(name, fallback) {
+  const i = process.argv.indexOf('--' + name);
+  return i === -1 ? fallback : process.argv[i + 1];
+}
+
+(async () => {
+  const executablePath = CHROME_CANDIDATES.find(fs.existsSync);
+  if (!executablePath) throw new Error('Chrome/Edge не найден — укажи путь в CHROME_CANDIDATES');
+
+  const width = Number(arg('width', 1440));
+  const sel = arg('sel', null);
+  const out = arg('out', sel ? sel.replace(/[^a-z0-9]/gi, '') : 'full');
+  const file = path.resolve(arg('file', 'index.html'));
+
+  const outDir = path.resolve('scratch');
+  fs.mkdirSync(outDir, { recursive: true });
+  const outPath = path.join(outDir, out + '.png');
+
+  const browser = await puppeteer.launch({ executablePath, headless: 'new' });
+  const page = await browser.newPage();
+  await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
+  await page.goto('file:///' + file.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
+  await page.evaluate(() => document.fonts.ready);
+
+  const target = sel ? await page.$(sel) : page;
+  if (!target) throw new Error('Селектор не найден: ' + sel);
+  await target.screenshot({ path: outPath, fullPage: !sel });
+
+  const { width: w, height: h } = await page.evaluate(() => ({
+    width: document.documentElement.scrollWidth,
+    height: document.documentElement.scrollHeight,
+  }));
+  console.log(`${outPath} — страница ${w}×${h}, viewport ${width}px`);
+
+  await browser.close();
+})();

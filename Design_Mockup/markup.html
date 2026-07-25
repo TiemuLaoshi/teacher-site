@@ -1,0 +1,331 @@
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F2EADF;font-family:Manrope,system-ui,sans-serif}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</helmet>
+
+<!-- NAV -->
+<div style="position:sticky;top:0;z-index:50;background:rgba(242,234,223,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(19,53,29,.12)">
+  <div style="max-width:1240px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:baseline;gap:12px">
+      <span style="font-family:'Noto Serif SC',serif;font-size:24px;color:#B1561F">中文</span>
+      <span style="font-weight:800;font-size:16px;color:#13351D;letter-spacing:.02em">Тимур · преподаватель китайского</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font-size:14px;font-weight:600;color:#13351D">
+      <a href="#method" style="color:inherit;text-decoration:none;opacity:.75" style-hover="opacity:1;color:#B1561F">Методика</a>
+      <a href="#results" style="color:inherit;text-decoration:none;opacity:.75" style-hover="opacity:1;color:#B1561F">Результаты</a>
+      <a href="#reviews" style="color:inherit;text-decoration:none;opacity:.75" style-hover="opacity:1;color:#B1561F">Отзывы</a>
+      <a href="#prices" style="color:inherit;text-decoration:none;opacity:.75" style-hover="opacity:1;color:#B1561F">Цены</a>
+      <a href="#booking" style="background:#13351D;color:#F2EADF;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none" style-hover="background:#B1561F">Пробный урок</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div data-screen-label="Hero" style="position:relative;overflow:hidden">
+  <div style="max-width:1240px;margin:0 auto;padding:0 48px;position:relative">
+    <span style="position:absolute;top:70px;left:0;font-family:'Noto Serif SC',serif;font-size:150px;color:#13351D;opacity:.06;line-height:1">学</span>
+    <span style="position:absolute;bottom:30px;left:400px;font-family:'Noto Serif SC',serif;font-size:100px;color:#B1561F;opacity:.07;line-height:1">语</span>
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:64px 0 72px">
+      <div style="animation:fadeUp .8s ease both">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:22px">
+          <span style="width:26px;height:1px;background:#B1561F"></span>Китайский язык онлайн
+        </div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.12;color:#13351D;margin:0 0 24px;text-wrap:pretty">Уже через месяц занятий вы прочитаете свой первый китайский комикс</h1>
+        <p style="font-size:18px;line-height:1.65;color:#3a4a3e;margin:0 0 34px;max-width:520px">Через два месяца — заговорите на бытовые темы: представитесь, спросите дорогу, сходите в магазин и начнёте читать простые иероглифические тексты.</p>
+        <div style="display:flex;align-items:center;gap:20px">
+          <a href="#booking" style="display:inline-block;background:#13351D;color:#F2EADF;font-weight:700;font-size:17px;padding:18px 36px;border-radius:999px;text-decoration:none;box-shadow:0 8px 24px rgba(19,53,29,.28)" style-hover="background:#B1561F;box-shadow:0 8px 24px rgba(177,86,31,.35)">Записаться на пробный урок</a>
+          <span style="font-size:14px;color:#3a4a3e;opacity:.8">Пробный урок — бесплатно,<br>30 минут онлайн</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:38px">
+          <span style="font-size:13px;font-weight:600;color:#13351D;background:rgba(19,53,29,.07);border:1px solid rgba(19,53,29,.14);padding:8px 14px;border-radius:999px">10+ лет преподавания</span>
+          <span style="font-size:13px;font-weight:600;color:#13351D;background:rgba(19,53,29,.07);border:1px solid rgba(19,53,29,.14);padding:8px 14px;border-radius:999px">Преподавал в НГУ</span>
+          <span style="font-size:13px;font-weight:600;color:#13351D;background:rgba(19,53,29,.07);border:1px solid rgba(19,53,29,.14);padding:8px 14px;border-radius:999px">Жил в Китае</span>
+        </div>
+      </div>
+      <div style="position:relative;justify-self:end">
+        <div style="position:absolute;width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#E3C36C,#C19A3E);opacity:.9;top:-20px;right:-16px"></div>
+        <img src="b7cad5cf-65da-43d5-a202-58e6e098a09e" alt="Тимур, преподаватель китайского" style="position:relative;width:400px;height:500px;object-fit:cover;border-radius:220px 220px 26px 26px;border:6px solid #fff;box-shadow:0 24px 48px rgba(19,53,29,.25)">
+        <div style="position:absolute;left:-28px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 12px 28px rgba(19,53,29,.18);display:flex;align-items:center;gap:10px">
+          <span style="font-family:'Noto Serif SC',serif;font-size:24px;color:#B1561F">你好</span>
+          <span style="font-size:13px;font-weight:600;color:#13351D;line-height:1.3">nǐ hǎo —<br>ваше первое слово</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NATIVE SPEAKER -->
+<div data-screen-label="Практика с носителем" style="background:#13351D;position:relative;overflow:hidden">
+  <span style="position:absolute;right:40px;top:-20px;font-family:'Noto Serif SC',serif;font-size:200px;color:#B1C87A;opacity:.08;line-height:1">话</span>
+  <div style="max-width:1240px;margin:0 auto;padding:64px 48px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center">
+    <div style="width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#E3C36C,#C19A3E);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#13351D;box-shadow:0 12px 32px rgba(0,0,0,.3)">
+      <span style="font-weight:800;font-size:34px;line-height:1">1 раз</span>
+      <span style="font-weight:700;font-size:14px">в 3 месяца</span>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1C87A;margin-bottom:14px">Практика с носителем</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.35;color:#F2EADF;margin:0;max-width:820px">Каждые три месяца я организую для вас урок с носителем языка — китаянкой, с которой вы сможете применить свои знания в живом диалоге.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div data-screen-label="О преподавателе" style="max-width:1240px;margin:0 auto;padding:80px 48px;display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center">
+  <div style="position:relative">
+    <img src="b7cad5cf-65da-43d5-a202-58e6e098a09e" alt="Тимур в Китае" style="width:100%;height:420px;object-fit:cover;object-position:50% 20%;border-radius:24px;box-shadow:0 20px 40px rgba(19,53,29,.2)">
+    <div style="position:absolute;right:-18px;top:-18px;background:#B1561F;color:#F2EADF;font-weight:700;font-size:14px;padding:10px 16px;border-radius:12px;box-shadow:0 8px 20px rgba(177,86,31,.4)">снято в Китае</div>
+  </div>
+  <div>
+    <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:16px">О преподавателе</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0 0 22px;line-height:1.15">Учу тому языку, на котором говорят в реальной жизни</h2>
+    <p style="font-size:17px;line-height:1.7;color:#3a4a3e;margin:0 0 28px">Педагогическое образование, более 10 лет преподавания китайского, в том числе в Новосибирском университете. Жил в Китае и продолжаю активно работать с носителями — преподаю им русский, поэтому знаю, как звучит живой современный китайский.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div style="border-top:2px solid #C19A3E;padding-top:12px"><div style="font-weight:800;font-size:24px;color:#13351D">10+</div><div style="font-size:13.5px;color:#3a4a3e">лет преподавания</div></div>
+      <div style="border-top:2px solid #C19A3E;padding-top:12px"><div style="font-weight:800;font-size:24px;color:#13351D">НГУ</div><div style="font-size:13.5px;color:#3a4a3e">опыт в университете</div></div>
+      <div style="border-top:2px solid #C19A3E;padding-top:12px"><div style="font-weight:800;font-size:24px;color:#13351D">中国</div><div style="font-size:13.5px;color:#3a4a3e">жил и работал в Китае</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- METHOD -->
+<div data-screen-label="Методика" id="method" style="max-width:1240px;margin:0 auto;padding:0 48px 84px;scroll-margin-top:90px">
+  <div style="text-align:center;margin-bottom:44px">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:12px">Методика</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0">Три опоры каждого урока</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div style="background:#fff;border-radius:20px;padding:34px 30px;box-shadow:0 10px 30px rgba(19,53,29,.08);transition:all .25s" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px rgba(19,53,29,.14)">
+      <div style="width:62px;height:62px;border-radius:16px;background:rgba(177,200,122,.35);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:30px;color:#13351D;margin-bottom:20px">字</div>
+      <h3 style="font-size:20px;font-weight:800;color:#13351D;margin:0 0 10px">Иероглифика</h3>
+      <p style="font-size:15px;line-height:1.6;color:#3a4a3e;margin:0">Системный разбор иероглифов: от ключей и черт — к чтению первых текстов уже в первый месяц.</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:34px 30px;box-shadow:0 10px 30px rgba(19,53,29,.08);transition:all .25s" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px rgba(19,53,29,.14)">
+      <div style="width:62px;height:62px;border-radius:16px;background:rgba(227,195,108,.35);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:30px;color:#13351D;margin-bottom:20px">法</div>
+      <h3 style="font-size:20px;font-weight:800;color:#13351D;margin:0 0 10px">Грамматика</h3>
+      <p style="font-size:15px;line-height:1.6;color:#3a4a3e;margin:0">Пять типов упражнений на каждую конструкцию — грамматика закрепляется в речи, а не в таблицах.</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:34px 30px;box-shadow:0 10px 30px rgba(19,53,29,.08);transition:all .25s" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px rgba(19,53,29,.14)">
+      <div style="width:62px;height:62px;border-radius:16px;background:rgba(177,86,31,.16);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:30px;color:#B1561F;margin-bottom:20px">说</div>
+      <h3 style="font-size:20px;font-weight:800;color:#13351D;margin:0 0 10px">Коммуникативная практика</h3>
+      <p style="font-size:15px;line-height:1.6;color:#3a4a3e;margin:0">Говорим с первого занятия: диалоги, игры и реальные бытовые ситуации вместо зубрёжки.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TECH -->
+<div data-screen-label="Технологии" style="background:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:80px 48px">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:12px">Технологии</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0 0 14px">То, чего нет у других репетиторов</h2>
+      <p style="font-size:16px;color:#3a4a3e;margin:0">Собственные цифровые инструменты — играем, отслеживаем прогресс, не теряем материалы.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch">
+      <div style="background:#13351D;border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
+        <div style="position:relative">
+          <img src="83800686-86dc-4228-b972-ff529919e5b5" alt="Alias-игра для китайского" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;opacity:.92">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+            <div style="width:82px;height:82px;border-radius:50%;background:rgba(242,234,223,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4);cursor:pointer;transition:transform .2s" style-hover="transform:scale(1.08)">
+              <span style="width:0;height:0;border-left:24px solid #B1561F;border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px"></span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:22px 26px">
+          <h3 style="font-size:19px;font-weight:800;color:#F2EADF;margin:0 0 6px">Авторская Alias-игра на уроках</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:#B1C87A;margin:0">Видео с реального занятия: объясняем слова друг другу и тренируем говорение на ходу.</p>
+        </div>
+      </div>
+      <div style="background:#F2EADF;border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
+        <img src="5f4f4484-e4c7-4e6a-a419-67eda7cde3b3" alt="Личный кабинет ученика" style="width:100%;display:block;height:300px;object-fit:cover;object-position:top">
+        <div style="padding:22px 26px">
+          <h3 style="font-size:19px;font-weight:800;color:#13351D;margin:0 0 6px">Личный кабинет ученика</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:#3a4a3e;margin:0">Прогресс по каждому уроку, домашние задания и награды — всё в одном месте.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div data-screen-label="Результаты" id="results" style="max-width:1240px;margin:0 auto;padding:80px 48px;scroll-margin-top:90px">
+  <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start">
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:16px">Результаты 2025</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0 0 20px;line-height:1.15">Экзамены, работа, поступление</h2>
+      <p style="font-size:16.5px;line-height:1.7;color:#3a4a3e;margin:0 0 30px">Помогу освоить китайский для любых целей: подтяну по учебной программе, подготовлю к работе — есть опыт обучения сотрудника нефтяной компании, байера и модели — или к учёбе в Китае. В этом году мои студенты поступили в университеты Пекина, Циндао и Чжэцзяна.</p>
+      <div style="display:flex;gap:40px">
+        <div><span style="font-weight:800;font-size:58px;color:#13351D;line-height:1">4</span><div style="font-size:14.5px;color:#3a4a3e;margin-top:6px">ученика сдали<br><b style="color:#13351D">HSK 3</b> в 2025</div></div>
+        <div style="width:1px;background:rgba(19,53,29,.15)"></div>
+        <div><span style="font-weight:800;font-size:58px;color:#B1561F;line-height:1">3</span><div style="font-size:14.5px;color:#3a4a3e;margin-top:6px">ученика сдали<br><b style="color:#B1561F">HSK 4</b> в 2025</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="aspect-ratio:4/3;border:2px dashed rgba(19,53,29,.3);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#13351D;background:rgba(255,255,255,.5)"><span style="font-family:'Noto Serif SC',serif;font-size:26px;opacity:.5">证书</span><span style="font-size:13px;font-weight:600;opacity:.65">Фото сертификата HSK 3</span></div>
+      <div style="aspect-ratio:4/3;border:2px dashed rgba(19,53,29,.3);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#13351D;background:rgba(255,255,255,.5)"><span style="font-family:'Noto Serif SC',serif;font-size:26px;opacity:.5">证书</span><span style="font-size:13px;font-weight:600;opacity:.65">Фото сертификата HSK 3</span></div>
+      <div style="aspect-ratio:4/3;border:2px dashed rgba(19,53,29,.3);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#13351D;background:rgba(255,255,255,.5)"><span style="font-family:'Noto Serif SC',serif;font-size:26px;opacity:.5">证书</span><span style="font-size:13px;font-weight:600;opacity:.65">Фото сертификата HSK 4</span></div>
+      <div style="aspect-ratio:4/3;border:2px dashed rgba(19,53,29,.3);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#13351D;background:rgba(255,255,255,.5)"><span style="font-family:'Noto Serif SC',serif;font-size:26px;opacity:.5">证书</span><span style="font-size:13px;font-weight:600;opacity:.65">Фото сертификата HSK 4</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div data-screen-label="Отзывы" id="reviews" style="background:#13351D;padding:72px 0;overflow:hidden;scroll-margin-top:90px">
+  <div style="max-width:1240px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:38px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#F2EADF;margin:0">Отзывы учеников</h2>
+    <span style="font-size:14px;color:#B1C87A;font-weight:600">с Профи.ру · ★ 4.9</span>
+  </div>
+  <div style="display:flex;width:max-content;gap:20px;animation:marq 55s linear infinite" style-hover="animation-play-state:paused">
+    <sc-for list="{{ reviewsLoop }}" as="r" hint-placeholder-count="4">
+      <div style="width:340px;background:rgba(242,234,223,.06);border:1px solid rgba(177,200,122,.25);border-radius:18px;padding:26px;flex:none">
+        <div style="color:#E3C36C;font-size:15px;letter-spacing:2px;margin-bottom:12px">★★★★★</div>
+        <p style="font-size:14.5px;line-height:1.6;color:#F2EADF;margin:0 0 16px;min-height:90px">{{ r.text }}</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-weight:700;font-size:14px;color:#B1C87A">{{ r.name }}</span>
+          <span style="font-size:12.5px;color:rgba(242,234,223,.5)">{{ r.date }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<!-- PRICES -->
+<div data-screen-label="Цены" id="prices" style="max-width:1240px;margin:0 auto;padding:80px 48px;scroll-margin-top:90px">
+  <div style="text-align:center;margin-bottom:44px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0 0 12px">Формат занятий</h2>
+    <p style="font-size:16px;color:#3a4a3e;margin:0">Веду набор не только на индивидуальные уроки, но и в группы по 2 или 4 человека.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,420px));gap:24px;justify-content:center">
+    <div style="background:#fff;border:2px solid #C19A3E;border-radius:24px;padding:38px 34px;position:relative;box-shadow:0 16px 40px rgba(193,154,62,.18)">
+      <div style="position:absolute;top:-14px;left:34px;background:linear-gradient(135deg,#E3C36C,#C19A3E);color:#13351D;font-size:12.5px;font-weight:800;padding:6px 14px;border-radius:999px;letter-spacing:.06em">МАКСИМУМ ВНИМАНИЯ</div>
+      <h3 style="font-size:21px;font-weight:800;color:#13351D;margin:6px 0 6px">Индивидуально</h3>
+      <p style="font-size:14.5px;color:#3a4a3e;margin:0 0 20px;line-height:1.55">Программа полностью под ваши цели и темп</p>
+      <div style="font-weight:800;font-size:44px;color:#13351D">2500 ₽<span style="font-size:16px;font-weight:600;color:#3a4a3e"> / урок 60 мин</span></div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(19,53,29,.15);border-radius:24px;padding:38px 34px;position:relative">
+      <div style="position:absolute;top:-14px;left:34px;background:#B1C87A;color:#13351D;font-size:12.5px;font-weight:800;padding:6px 14px;border-radius:999px;letter-spacing:.06em">ВЫГОДНО И ЖИВО</div>
+      <h3 style="font-size:21px;font-weight:800;color:#13351D;margin:6px 0 6px">Малая группа</h3>
+      <p style="font-size:14.5px;color:#3a4a3e;margin:0 0 20px;line-height:1.55">2 или 4 человека — больше диалогов и игр</p>
+      <div style="font-weight:800;font-size:44px;color:#13351D">1300 ₽<span style="font-size:16px;font-weight:600;color:#3a4a3e"> / урок 60 мин</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div data-screen-label="Бронирование" id="booking" style="background:#fff;scroll-margin-top:90px">
+  <div style="max-width:760px;margin:0 auto;padding:80px 48px">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B1561F;margin-bottom:12px">Бронирование</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;color:#13351D;margin:0">Выберите время пробного урока</h2>
+    </div>
+    <div style="background:#F2EADF;border-radius:24px;padding:34px;box-shadow:0 14px 36px rgba(19,53,29,.1)">
+      <div style="font-size:14px;font-weight:700;color:#13351D;margin-bottom:14px">Июль 2026 · день</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:26px">
+        <sc-for list="{{ daysA }}" as="d" hint-placeholder-count="6">
+          <button onclick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button>
+        </sc-for>
+      </div>
+      <div style="font-size:14px;font-weight:700;color:#13351D;margin-bottom:14px">Время (МСК)</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:26px">
+        <sc-for list="{{ timesA }}" as="t" hint-placeholder-count="6">
+          <button onclick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ bookedA }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(177,200,122,.35);border:1px solid #B1C87A;border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px">
+          <span style="width:34px;height:34px;border-radius:50%;background:#13351D;color:#B1C87A;display:flex;align-items:center;justify-content:center;font-size:17px;flex:none">✓</span>
+          <span style="font-size:15px;color:#13351D;line-height:1.5"><b>Заявка отправлена!</b> {{ selLabelA }} — я напишу вам в мессенджер для подтверждения.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notBookedA }}" hint-placeholder-val="{{ true }}">
+        <button onclick="{{ confirmA }}" style="{{ confirmStyleA }}">{{ confirmLabelA }}</button>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div data-screen-label="Финальный CTA" style="background:#13351D;position:relative;overflow:hidden">
+  <span style="position:absolute;left:40px;bottom:-30px;font-family:'Noto Serif SC',serif;font-size:180px;color:#B1C87A;opacity:.07;line-height:1">加油</span>
+  <div style="max-width:1240px;margin:0 auto;padding:80px 48px;text-align:center">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:42px;color:#F2EADF;margin:0 0 18px;line-height:1.2">Напишите мне, чтобы записаться<br>на пробный урок</h2>
+    <p style="font-size:17px;color:#B1C87A;margin:0 0 34px">Обсудим ваши цели, и я расскажу, как мы будем их достигать!</p>
+    <div style="display:flex;gap:16px;justify-content:center">
+      <a href="https://t.me/username" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#E3C36C,#C19A3E);color:#13351D;font-weight:800;font-size:16px;padding:16px 32px;border-radius:999px;text-decoration:none;transition:transform .2s" style-hover="transform:translateY(-2px)">Telegram</a>
+      <a href="https://wa.me/70000000000" style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:2px solid #B1C87A;color:#B1C87A;font-weight:800;font-size:16px;padding:14px 32px;border-radius:999px;text-decoration:none" style-hover="background:rgba(177,200,122,.15)">WhatsApp</a>
+    </div>
+    <div style="margin-top:44px;font-size:13px;color:rgba(242,234,223,.4)">© 2026 Тимур · преподаватель китайского языка</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  state = { dayA: 2, timeA: null, bookedA: false };
+
+  renderVals() {
+    const days = ['Пн 13', 'Вт 14', 'Ср 15', 'Чт 16', 'Пт 17', 'Сб 18'];
+    const times = ['10:00', '12:30', '14:00', '16:00', '17:30', '19:00'];
+    const reviews = [
+      { name: 'Анна', date: 'окт 2024', text: 'Преподаватель очень хорошо объясняет материал, всё сразу становится понятно и вопросов не остаётся)))' },
+      { name: 'Даниил', date: 'окт 2022', text: 'Хорошая организация занятий, последовательная программа, спокойный, методичный преподаватель. Занятия — комфортные, полезные.' },
+      { name: 'Ольга', date: 'сен 2021', text: 'Рекомендую специалиста как надежного и уверенного исполнителя. Работа по подготовке к экзамену структурированная и грамотная. В доступной форме объясняется материал.' },
+      { name: 'Максим Удовиченко', date: 'сен 2021', text: 'Тимур Маратович огромный специалист своего дела! Впервые встречаю репетитора, который так профессионально обучает. Помимо языка, рассказывает ещё и интересные факты про культуру Поднебесной!' },
+      { name: 'Polina', date: 'сен 2021', text: 'Тимур Маратович замечательный преподаватель, который объясняет все максимально понятно и интересно. Благодаря его методике изучать китайский язык очень увлекательно.' },
+      { name: 'Ольга', date: 'фев 2020', text: 'Преподаватель очень понравился! В доступной и понятной форме была объяснена информация, которая не написана в учебниках, но очень помогает в изучении китайского языка.' },
+      { name: 'Ксения', date: 'сен 2021', text: 'Очень интересно заниматься, заряжает желанием обучаться!' }
+    ];
+
+    const busy = (d, t) => (d * 7 + t * 3) % 5 === 0;
+    const day = this.state.dayA;
+    const time = this.state.timeA;
+    const booked = this.state.bookedA;
+
+    const baseBtn = {
+      fontFamily: 'Manrope,sans-serif', fontWeight: 700, fontSize: '14px',
+      padding: '13px 6px', borderRadius: '12px', cursor: 'pointer',
+      border: '1px solid rgba(19,53,29,.22)', background: '#fff', color: '#13351D',
+      transition: 'all .15s'
+    };
+    const selStyle = { ...baseBtn, background: '#13351D', color: '#F2EADF', border: '1px solid #13351D', boxShadow: '0 6px 16px rgba(19,53,29,.3)' };
+
+    const daysA = days.map((label, i) => ({
+      label,
+      style: i === day ? selStyle : baseBtn,
+      pick: () => this.setState({ dayA: i, timeA: null, bookedA: false })
+    }));
+    const timesA = times.map((label, i) => {
+      const isBusy = busy(day, i);
+      return {
+        label: isBusy ? '—' : label,
+        style: isBusy ? { ...baseBtn, opacity: .35, cursor: 'not-allowed' } : i === time ? selStyle : baseBtn,
+        pick: isBusy ? () => {} : () => this.setState({ timeA: i, bookedA: false })
+      };
+    });
+    const ready = time !== null;
+
+    return {
+      reviewsLoop: [...reviews, ...reviews],
+      daysA, timesA,
+      bookedA: booked,
+      notBookedA: !booked,
+      selLabelA: ready ? days[day] + ' июля, ' + times[time] : '',
+      confirmA: () => { if (ready) this.setState({ bookedA: true }); },
+      confirmLabelA: ready ? 'Подтвердить: ' + days[day] + ', ' + times[time] : 'Выберите день и время',
+      confirmStyleA: {
+        width: '100%', fontFamily: 'Manrope,sans-serif', fontWeight: 800, fontSize: '16px',
+        padding: '17px', borderRadius: '14px', border: 'none',
+        cursor: ready ? 'pointer' : 'default',
+        background: ready ? '#B1561F' : 'rgba(19,53,29,.12)',
+        color: ready ? '#F2EADF' : 'rgba(19,53,29,.45)',
+        boxShadow: ready ? '0 10px 26px rgba(177,86,31,.3)' : 'none',
+        transition: 'all .2s'
+      }
+    };
+  }
+}
+</script>
+
+

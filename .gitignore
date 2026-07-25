@@ -1,0 +1,32 @@
+# Временные файлы вёрстки (скриншоты сравнения, распакованный макет)
+scratch/
+/screenshots/
+*.tmp
+
+# Бандлы макета — 2 байт-в-байт идентичные копии по 9.5 МБ, из которых
+# нужны только ~330 строк разметки. Извлечённое лежит в
+# Design_Mockup/markup.html (32 КБ) и версионируется. Сами бандлы остаются
+# на диске, но в git не идут.
+Design_Mockup/Сайт Тимура.html
+Design_Mockup/Сайт Тимура (1).html
+
+# Дубли эталонного рендера (идентичны Design_Mockup/fullpage.png)
+/fullpage (1).png
+Design_Mockup/fullpage (1).png
+
+# Зависимости инструментов (puppeteer и т.п. — не входят в сборку сайта)
+node_modules/
+package-lock.json
+
+# Внутренние рабочие документы — репозиторий публичный ради GitHub Pages,
+# эти файлы остаются только локально у Тимура.
+ТЗ_сайт_учителя_китайского.md
+Бриф_для_дизайнера.md
+exampleclaudemd.txt
+
+# OS / IDE
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

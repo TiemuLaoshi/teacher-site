@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Тимур · преподаватель китайского — дизайн-система
+   Источник токенов: Design_Mockup/Сайт Тимура.html + StyleColours.jpg
+   ========================================================================== */
+
+:root {
+  /* --- Цвета (утверждённая палитра) --- */
+  --cream:        #F2EADF; /* фон страницы, светлые панели */
+  --dark-green:   #13351D; /* основной акцент — хедер, кнопки, тёмные секции */
+  --terracotta:   #B1561F; /* акцент/hover (ссылки, hover CTA) */
+  --sage:         #3a4a3e; /* второстепенный текст на светлом фоне */
+  --light-green:  #B1C87A; /* акцент на тёмном фоне (eyebrow, подписи) */
+  --ink:          #1D1D1B; /* базовый тёмный текст (StyleColours.jpg) */
+  --white:        #ffffff;
+
+  /* Золото — есть в макете, нет в StyleColours.jpg (см. CLAUDE.md → Открытые вопросы) */
+  --gold:         #C19A3E;
+  --gold-light:   #E3C36C;
+  --gold-grad:    linear-gradient(135deg, var(--gold-light), var(--gold));
+
+  /* --- Полупрозрачные производные (из макета) --- */
+  --dark-07:  rgba(19, 53, 29, .07);
+  --dark-12:  rgba(19, 53, 29, .12);
+  --dark-14:  rgba(19, 53, 29, .14);
+  --dark-15:  rgba(19, 53, 29, .15);
+  --dark-22:  rgba(19, 53, 29, .22);
+  --dark-30:  rgba(19, 53, 29, .30);
+  --cream-06: rgba(242, 234, 223, .06);
+  --sage-25:  rgba(177, 200, 122, .25);
+
+  /* --- Шрифты --- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Manrope', system-ui, -apple-system, sans-serif;
+  --font-cn:      'Noto Serif SC', serif;
+
+  /* --- Радиусы --- */
+  --r-pill: 999px;
+  --r-xl:   24px;
+  --r-lg:   22px;
+  --r-md:   20px;
+  --r-sm:   16px;
+  --r-xs:   14px;
+  --r-2xs:  12px;
+
+  /* --- Тени --- */
+  --sh-card:   0 10px 30px rgba(19, 53, 29, .08);
+  --sh-hover:  0 18px 40px rgba(19, 53, 29, .14);
+  --sh-panel:  0 14px 36px rgba(19, 53, 29, .10);
+  --sh-photo:  0 24px 48px rgba(19, 53, 29, .25);
+  --sh-cta:    0 8px 24px rgba(19, 53, 29, .28);
+
+  /* --- Сетка --- */
+  --container:  1240px;
+  --gutter:     48px;
+  --nav-height: 90px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+img, svg, video, iframe { display: block; max-width: 100%; }
+img { height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+button { cursor: pointer; }
+
+/* --------------------------------------------------------------------------
+   Примитивы
+   -------------------------------------------------------------------------- */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* Надпись-eyebrow над заголовком секции */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+.eyebrow--on-dark { color: var(--light-green); }
+
+/* Заголовок секции */
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--dark-green);
+}
+.h2--on-dark { color: var(--cream); }
+
+.cn { font-family: var(--font-cn); }
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  text-align: center;
+  transition: background .2s, box-shadow .2s, transform .2s;
+}
+
+.btn--dark {
+  background: var(--dark-green);
+  color: var(--cream);
+}
+.btn--dark:hover { background: var(--terracotta); }
+
+.btn--sm { padding: 11px 22px; font-size: 14px; }
+.btn--lg {
+  padding: 18px 36px;
+  font-size: 17px;
+  box-shadow: var(--sh-cta);
+}
+.btn--lg:hover { box-shadow: 0 8px 24px rgba(177, 86, 31, .35); }
+
+/* Секции с якорем — отступ под липкий хедер */
+[id] { scroll-margin-top: var(--nav-height); }
+
+/* --------------------------------------------------------------------------
+   Навигация
+   -------------------------------------------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(242, 234, 223, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--dark-12);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.nav__brand-cn {
+  font-family: var(--font-cn);
+  font-size: 24px;
+  color: var(--terracotta);
+}
+.nav__brand-text {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--dark-green);
+  letter-spacing: .02em;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+.nav__links a:not(.btn) { opacity: .75; transition: opacity .2s, color .2s; }
+.nav__links a:not(.btn):hover { opacity: 1; color: var(--terracotta); }
+
+/* --------------------------------------------------------------------------
+   Секции — вёрстка добавляется поблочно (Этап 1)
+   -------------------------------------------------------------------------- */
+
+/* .hero    — Этап 1.1 */
+/* .cta     — Этап 1.2 */
+/* .about   — Этап 1.3 */
+/* .native  — Этап 1.4 */
+/* .method  — Этап 1.5 */
+/* .prices  — Этап 1.6 */
+/* .results — Этап 1.7 */
+/* .reviews — Этап 1.8 */
+/* .tech    — Этап 1.9 */
+/* .booking — Этап 1.10 */
+
+/* --------------------------------------------------------------------------
+   Доступность
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
