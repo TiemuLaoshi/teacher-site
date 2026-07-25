@@ -30,7 +30,11 @@ function arg(name, fallback) {
   const width = Number(arg('width', 1440));
   const sel = arg('sel', null);
   const out = arg('out', sel ? sel.replace(/[^a-z0-9]/gi, '') : 'full');
-  const file = path.resolve(arg('file', 'index.html'));
+  // --file принимает и локальный путь, и http(s)-адрес (проверка прода)
+  const target0 = arg('file', 'index.html');
+  const url = /^https?:\/\//.test(target0)
+    ? target0
+    : 'file:///' + path.resolve(target0).replace(/\\/g, '/');
 
   const outDir = path.resolve('scratch');
   fs.mkdirSync(outDir, { recursive: true });
@@ -39,7 +43,7 @@ function arg(name, fallback) {
   const browser = await puppeteer.launch({ executablePath, headless: 'new' });
   const page = await browser.newPage();
   await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
-  await page.goto('file:///' + file.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
+  await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
 
   const target = sel ? await page.$(sel) : page;
