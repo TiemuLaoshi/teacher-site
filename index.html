@@ -151,7 +151,52 @@
 
   <!-- ============ 7. ОТЗЫВЫ ============ -->
   <section id="reviews" class="reviews" data-screen-label="Отзывы">
-    <!-- Этап 1.8 -->
+    <div class="container reviews__head">
+      <h2 class="h2 h2--on-dark">Отзывы учеников</h2>
+      <span class="reviews__meta">с Профи.ру · ★ 4.9</span>
+    </div>
+
+    <!-- Лента прокручивается пальцем/трекпадом; js/reviews.js дублирует
+         карточки и включает бесконечную прокрутку из макета -->
+    <div class="reviews__viewport">
+      <ul class="reviews__track">
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Преподаватель очень хорошо объясняет материал, всё сразу становится понятно и вопросов не остаётся)))</p>
+          <p class="review__foot"><span class="review__name">Анна</span><span class="review__date">окт 2024</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Хорошая организация занятий, последовательная программа, спокойный, методичный преподаватель. Занятия — комфортные, полезные.</p>
+          <p class="review__foot"><span class="review__name">Даниил</span><span class="review__date">окт 2022</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Рекомендую специалиста как надежного и уверенного исполнителя. Работа по подготовке к экзамену структурированная и грамотная. В доступной форме объясняется материал.</p>
+          <p class="review__foot"><span class="review__name">Ольга</span><span class="review__date">сен 2021</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Тимур Маратович огромный специалист своего дела! Впервые встречаю репетитора, который так профессионально обучает. Помимо языка, рассказывает ещё и интересные факты про культуру Поднебесной!</p>
+          <p class="review__foot"><span class="review__name">Максим Удовиченко</span><span class="review__date">сен 2021</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Тимур Маратович замечательный преподаватель, который объясняет все максимально понятно и интересно. Благодаря его методике изучать китайский язык очень увлекательно.</p>
+          <p class="review__foot"><span class="review__name">Polina</span><span class="review__date">сен 2021</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Преподаватель очень понравился! В доступной и понятной форме была объяснена информация, которая не написана в учебниках, но очень помогает в изучении китайского языка.</p>
+          <p class="review__foot"><span class="review__name">Ольга</span><span class="review__date">фев 2020</span></p>
+        </li>
+        <li class="review">
+          <span class="review__stars" aria-hidden="true">★★★★★</span>
+          <p class="review__text">Очень интересно заниматься, заряжает желанием обучаться!</p>
+          <p class="review__foot"><span class="review__name">Ксения</span><span class="review__date">сен 2021</span></p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- ============ 8. ЦЕНЫ ============ -->
@@ -205,6 +250,7 @@
 
 </main>
 
+<script src="js/reviews.js" defer></script>
 <script src="js/animations.js" defer></script>
 <script src="js/booking.js" defer></script>
 </body>

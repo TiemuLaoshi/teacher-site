@@ -27,6 +27,7 @@
   --dark-30:  rgba(19, 53, 29, .30);
   --cream-06: rgba(242, 234, 223, .06);
   --cream-40: rgba(242, 234, 223, .40);
+  --cream-50: rgba(242, 234, 223, .50);
   --sage-25:  rgba(177, 200, 122, .25);
   --lgreen-15: rgba(177, 200, 122, .15);
   /* Подложки под иероглифы в карточках методики */
@@ -765,6 +766,136 @@ button { cursor: pointer; }
   .price { padding: 32px 24px; }
   .price__badge { left: 24px; }
   .price__value { font-size: 38px; }
+}
+
+/* ----------------------------- 7. Отзывы --------------------------------- */
+
+.reviews {
+  background: var(--dark-green);
+  padding-block: 72px;
+  overflow: hidden;
+}
+
+.reviews__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 38px;
+}
+.reviews__meta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--light-green);
+  white-space: nowrap;
+}
+
+/* Лента выходит за контейнер на всю ширину экрана — так в макете.
+   По умолчанию прокручивается вручную; js/reviews.js дублирует карточки
+   и переводит её в бесконечную прокрутку. */
+.reviews__viewport {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.reviews__viewport::-webkit-scrollbar { display: none; }
+
+.reviews__track {
+  display: flex;
+  width: max-content;
+}
+
+.review {
+  flex: none;
+  /* Ловушка reset'а: в макете нет box-sizing:border-box, поэтому 340px —
+     это ширина текста, а поля 26px и рамка идут сверху (итого 394px).
+     С border-box карточка становится уже на 54px, и длинные отзывы
+     переносятся на лишнюю строку — все карточки вырастают на 23px. */
+  box-sizing: content-box;
+  width: 340px;
+  /* Отступ через margin, а не gap: в бесконечной ленте шаг анимации должен
+     быть кратен ширине карточки вместе с промежутком, иначе на стыке копий
+     видно рывок. */
+  margin-right: 20px;
+  background: var(--cream-06);
+  border: 1px solid var(--sage-25);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.review__stars {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.review__text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--cream);
+  margin-bottom: 16px;
+  /* Выравнивает подписи у карточек с короткими отзывами */
+  min-height: 90px;
+}
+
+.review__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.review__name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--light-green);
+}
+.review__date {
+  font-size: 12.5px;
+  color: var(--cream-50);
+}
+
+/* Бесконечная лента включается из JS — до дублирования карточек анимация
+   уехала бы в пустоту */
+.reviews__viewport--marquee { overflow: hidden; }
+.reviews__track--anim {
+  animation: marquee 55s linear infinite;
+}
+.reviews__viewport--marquee:hover .reviews__track--anim,
+.reviews__viewport--marquee:focus-within .reviews__track--anim {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Адаптив «Отзывы» (эталона мобильной версии нет — наше решение).
+   Ширина карточки не трогается: лента и так уходит за край экрана,
+   ужимать карточки незачем — меняются только поля секции. */
+
+@media (max-width: 880px) {
+  .reviews { padding-block: 56px; }
+  .reviews__head { margin-bottom: 28px; }
+}
+
+@media (max-width: 700px) {
+  .reviews__head .h2 { font-size: 32px; }
+}
+
+@media (max-width: 520px) {
+  .reviews { padding-block: 44px; }
+  .reviews__head {
+    /* Подпись «с Профи.ру» на узком экране не влезает в одну строку с
+       заголовком — уводим её под него */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .reviews__head .h2 { font-size: 27px; }
+  .review { width: 280px; padding: 22px; }
+  .review__text { min-height: 0; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
