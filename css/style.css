@@ -55,6 +55,7 @@
   --sh-photo:  0 24px 48px rgba(19, 53, 29, .25);
   --sh-img:    0 20px 40px rgba(19, 53, 29, .20);
   --sh-cta:    0 8px 24px rgba(19, 53, 29, .28);
+  --sh-gold:   0 16px 40px rgba(193, 154, 62, .18);
   --sh-badge:  0 8px 20px rgba(177, 86, 31, .40);
 
   /* --- Сетка --- */
@@ -660,6 +661,110 @@ button { cursor: pointer; }
   .method__inner { padding-bottom: 48px; }
   .method__head .h2 { font-size: 27px; }
   .card { padding: 28px 24px; }
+}
+
+/* ------------------------------ 8. Цены ---------------------------------- */
+
+.prices__inner { padding-block: 80px; }
+
+.prices__head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.prices__head .h2 { margin-bottom: 12px; }
+.prices__lead {
+  font-size: 16px;
+  color: var(--sage);
+}
+
+/* minmax(0, 420px) — не опечатка вместо 420px: карточки упираются в 420px
+   на широком экране, но на 909px им остаётся 813px на двоих, и нулевой
+   минимум разрешает трекам ужаться до 395px вместо переполнения. */
+.prices__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  gap: 24px;
+  justify-content: center;
+}
+
+.price {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--dark-15);
+  border-radius: var(--r-xl);
+  padding: 38px 34px;
+}
+.price--accent {
+  border: 2px solid var(--gold);
+  box-shadow: var(--sh-gold);
+}
+
+.price__badge {
+  position: absolute;
+  top: -14px;
+  left: 34px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--dark-green);
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+}
+.price__badge--gold { background: var(--gold-grad); }
+.price__badge--sage { background: var(--light-green); }
+
+.price__title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--dark-green);
+  margin: 6px 0;
+}
+
+.price__desc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--sage);
+  margin-bottom: 20px;
+}
+
+.price__value {
+  font-weight: 800;
+  font-size: 44px;
+  color: var(--dark-green);
+}
+.price__unit {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sage);
+}
+
+/* Адаптив «Цены» (эталона мобильной версии нет — наше решение).
+   Две колонки живут долго: карточки сами ужимаются трекам minmax(0,420px),
+   ломать сетку раньше времени незачем. Порог 640px — там на текст внутри
+   карточки остаётся меньше 160px и цена 44px перестаёт помещаться в строку
+   вместе с подписью «/ урок 60 мин». */
+
+@media (max-width: 880px) {
+  .prices__inner { padding-block: 64px; }
+  .prices__head { margin-bottom: 36px; }
+}
+
+@media (max-width: 700px) {
+  .prices__head .h2 { font-size: 32px; }
+  .prices__lead { font-size: 15px; }
+}
+
+@media (max-width: 640px) {
+  .prices__grid { grid-template-columns: minmax(0, 420px); gap: 30px; }
+}
+
+@media (max-width: 520px) {
+  .prices__inner { padding-block: 48px; }
+  .prices__head .h2 { font-size: 27px; }
+  .price { padding: 32px 24px; }
+  .price__badge { left: 24px; }
+  .price__value { font-size: 38px; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
