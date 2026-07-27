@@ -49,7 +49,9 @@
   --sh-hover:  0 18px 40px rgba(19, 53, 29, .14);
   --sh-panel:  0 14px 36px rgba(19, 53, 29, .10);
   --sh-photo:  0 24px 48px rgba(19, 53, 29, .25);
+  --sh-img:    0 20px 40px rgba(19, 53, 29, .20);
   --sh-cta:    0 8px 24px rgba(19, 53, 29, .28);
+  --sh-badge:  0 8px 20px rgba(177, 86, 31, .40);
 
   /* --- Сетка --- */
   --container:  1240px;
@@ -456,6 +458,115 @@ button { cursor: pointer; }
 
   .hero__glyph--xue { font-size: 110px; }
   .hero__glyph--yu { font-size: 78px; }
+}
+
+/* ----------------------- 3. О преподавателе ------------------------------ */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 60px;
+  align-items: center;
+  padding-block: 80px;
+}
+
+.about__media { position: relative; }
+
+.about__photo {
+  /* Ловушка reset'а №4: глобальное img{display:block} убирает у обёртки
+     «хвост» строки под базовой линией (~6px), обёртка становится 420 вместо
+     426, и отцентрованное по соседней колонке фото садится на 3px ниже, чем
+     в макете. Возвращаем строчное поведение макета — высота ряда (481px)
+     задаётся текстовой колонкой и от этого не меняется. */
+  display: inline;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  /* Кадрирование из макета: лицо уходит из центра, если ставить 50% 50% */
+  object-position: 50% 20%;
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-img);
+}
+
+.about__badge {
+  position: absolute;
+  right: -18px;
+  top: -18px;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: var(--r-2xs);
+  box-shadow: var(--sh-badge);
+}
+
+.about__eyebrow { margin-bottom: 16px; }
+.about__title { margin-bottom: 22px; }
+
+.about__lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--sage);
+  margin-bottom: 28px;
+}
+
+.about__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.fact { border-top: 2px solid var(--gold); padding-top: 12px; }
+.fact__value {
+  display: block;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--dark-green);
+}
+.fact__label {
+  display: block;
+  font-size: 13.5px;
+  color: var(--sage);
+}
+
+/* Адаптив «О преподавателе» (эталона мобильной версии нет — наше решение).
+   Точка 880px общая с Hero: ниже неё колонка текста под заголовок в 40px
+   становится уже 400px и заголовок рассыпается на пять строк. */
+
+@media (max-width: 880px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 56px;
+    justify-items: center;
+  }
+  .about__content { max-width: 560px; }
+
+  /* Ширину держит обёртка, а не фото: плашка «снято в Китае» позиционируется
+     от её правого края и на растянутой обёртке отрывается от снимка. */
+  .about__media { width: min(420px, 100%); }
+  .about__photo { height: 340px; }
+}
+
+@media (max-width: 700px) {
+  .about__title { font-size: 32px; }
+  .about__lead { font-size: 16px; }
+}
+
+@media (max-width: 520px) {
+  .about__grid { padding-block: 44px; gap: 30px; }
+  .about__title { font-size: 27px; }
+  .about__photo { height: 300px; }
+
+  /* Плашка свисает с угла на 18px — при поле 20px она почти упирается
+     в край экрана, подбираем вылет под узкий гаттер */
+  .about__badge { right: -6px; top: -14px; font-size: 13px; padding: 9px 14px; }
+
+  /* Три колонки сохраняем — это тот же ритм, что у чипсов в Hero;
+     на 320px ужимается только промежуток. */
+  .about__facts { gap: 10px; }
+  .fact__value { font-size: 21px; }
+  .fact__label { font-size: 12.5px; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
