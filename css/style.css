@@ -29,6 +29,10 @@
   --cream-40: rgba(242, 234, 223, .40);
   --sage-25:  rgba(177, 200, 122, .25);
   --lgreen-15: rgba(177, 200, 122, .15);
+  /* Подложки под иероглифы в карточках методики */
+  --lgreen-35: rgba(177, 200, 122, .35);
+  --gold-35:   rgba(227, 195, 108, .35);
+  --clay-16:   rgba(177,  86,  31, .16);
 
   /* --- Шрифты --- */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -567,6 +571,95 @@ button { cursor: pointer; }
   .about__facts { gap: 10px; }
   .fact__value { font-size: 21px; }
   .fact__label { font-size: 12.5px; }
+}
+
+/* ---------------------------- 4. Методика -------------------------------- */
+
+/* Сверху отступа нет — его даёт нижний padding блока «О преподавателе» */
+.method__inner { padding-bottom: 84px; }
+
+.method__head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.method__eyebrow { margin-bottom: 12px; }
+
+.method__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  padding: 34px 30px;
+  box-shadow: var(--sh-card);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-hover);
+}
+
+.card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: var(--r-sm);
+  font-size: 30px;
+  color: var(--dark-green);
+  margin-bottom: 20px;
+}
+.card__icon--sage { background: var(--lgreen-35); }
+.card__icon--gold { background: var(--gold-35); }
+.card__icon--clay { background: var(--clay-16); color: var(--terracotta); }
+
+.card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+}
+
+.card__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sage);
+}
+
+/* Адаптив «Методика» (эталона мобильной версии нет — наше решение).
+   Промежуточной стадии в две колонки нет намеренно: карточек три, и третья
+   повисает в пустой строке. Держим три колонки, сколько получается (внизу
+   диапазона на текст остаётся ~150px — это 3-4 строки вместо 3), а дальше
+   сразу стопка. */
+
+@media (max-width: 880px) {
+  .method__inner { padding-bottom: 64px; }
+  .method__head { margin-bottom: 32px; }
+  .card { padding: 30px 26px; }
+}
+
+@media (max-width: 760px) {
+  .method__cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    /* Во всю ширину строка карточки была бы под 100 символов */
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .method__head .h2 { font-size: 32px; }
+}
+
+@media (max-width: 520px) {
+  .method__inner { padding-bottom: 48px; }
+  .method__head .h2 { font-size: 27px; }
+  .card { padding: 28px 24px; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
