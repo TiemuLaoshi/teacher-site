@@ -28,6 +28,7 @@
   --cream-06: rgba(242, 234, 223, .06);
   --cream-40: rgba(242, 234, 223, .40);
   --cream-50: rgba(242, 234, 223, .50);
+  --white-50: rgba(255, 255, 255, .50);
   --sage-25:  rgba(177, 200, 122, .25);
   --lgreen-15: rgba(177, 200, 122, .15);
   /* Подложки под иероглифы в карточках методики */
@@ -766,6 +767,114 @@ button { cursor: pointer; }
   .price { padding: 32px 24px; }
   .price__badge { left: 24px; }
   .price__value { font-size: 38px; }
+}
+
+/* --------------------------- 6. Результаты -------------------------------- */
+
+.results__grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+  padding-block: 80px;
+}
+
+.results__eyebrow { margin-bottom: 16px; }
+.results__title { margin-bottom: 20px; }
+
+.results__lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--sage);
+  margin-bottom: 30px;
+}
+
+.results__stats {
+  display: flex;
+  gap: 40px;
+}
+.results__divider {
+  width: 1px;
+  background: var(--dark-15);
+}
+
+.stat__value {
+  display: block;
+  font-weight: 800;
+  font-size: 58px;
+  line-height: 1;
+  color: var(--dark-green);
+}
+.stat__label {
+  font-size: 14.5px;
+  color: var(--sage);
+  margin-top: 6px;
+}
+.stat__label b { color: var(--dark-green); }
+
+.stat--clay .stat__value,
+.stat--clay .stat__label b { color: var(--terracotta); }
+
+.results__certs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Пунктирные рамки — состояние «фото ещё не прислали», так в макете */
+.cert {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed var(--dark-30);
+  border-radius: var(--r-sm);
+  background: var(--white-50);
+  color: var(--dark-green);
+}
+.cert__glyph {
+  font-size: 26px;
+  opacity: .5;
+}
+.cert__label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .65;
+}
+
+/* Адаптив «Результаты» (эталона мобильной версии нет — наше решение) */
+
+@media (max-width: 880px) {
+  .results__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-block: 64px;
+  }
+  .results__content { max-width: 560px; }
+
+  /* Во всю ширину четыре пустые пунктирные рамки занимали бы пол-экрана */
+  .results__certs { max-width: 480px; }
+}
+
+@media (max-width: 700px) {
+  .results__title { font-size: 32px; }
+  .results__lead { font-size: 16px; }
+}
+
+@media (max-width: 520px) {
+  .results__grid { padding-block: 48px; gap: 32px; }
+  .results__title { font-size: 27px; }
+
+  /* Две колонки сохраняем: в стопку четыре заглушки растянулись бы
+     на несколько экранов */
+  .results__certs { gap: 12px; }
+  .cert__glyph { font-size: 22px; }
+  .cert__label { font-size: 11.5px; text-align: center; }
+
+  .results__stats { gap: 24px; }
+  .stat__value { font-size: 46px; }
 }
 
 /* ----------------------------- 7. Отзывы --------------------------------- */
