@@ -301,7 +301,39 @@
 
   <!-- ============ 9. БРОНИРОВАНИЕ ============ -->
   <section id="booking" class="booking" data-screen-label="Бронирование">
-    <!-- Этап 1.10 (вёрстка) → Этап 3 (интеграция с API teacher-bot) -->
+    <div class="booking__inner">
+      <div class="booking__head">
+        <p class="eyebrow booking__eyebrow">Бронирование</p>
+        <h2 class="h2">Выберите время пробного урока</h2>
+      </div>
+
+      <!-- Вёрстка виджета. Дни и слоты пока демонстрационные, как в макете:
+           реальные данные приходят из GET /api/slots (teacher-bot), это
+           Этап 3 — js/booking.js перерисует обе сетки и включит кнопку. -->
+      <div class="booking__card">
+        <p class="booking__label" id="booking-days-label">Июль 2026 · день</p>
+        <div class="booking__grid" role="group" aria-labelledby="booking-days-label">
+          <button class="slot" type="button">Пн 13</button>
+          <button class="slot" type="button">Вт 14</button>
+          <button class="slot slot--active" type="button" aria-pressed="true">Ср 15</button>
+          <button class="slot" type="button">Чт 16</button>
+          <button class="slot" type="button">Пт 17</button>
+          <button class="slot" type="button">Сб 18</button>
+        </div>
+
+        <p class="booking__label" id="booking-times-label">Время (МСК)</p>
+        <div class="booking__grid" role="group" aria-labelledby="booking-times-label">
+          <button class="slot" type="button">10:00</button>
+          <button class="slot" type="button">12:30</button>
+          <button class="slot slot--busy" type="button" disabled aria-label="Время занято">—</button>
+          <button class="slot" type="button">16:00</button>
+          <button class="slot" type="button">17:30</button>
+          <button class="slot" type="button">19:00</button>
+        </div>
+
+        <button class="booking__submit" type="button" disabled>Выберите день и время</button>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 10. ФИНАЛЬНЫЙ CTA ============ -->

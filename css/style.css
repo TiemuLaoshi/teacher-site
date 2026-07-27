@@ -25,6 +25,7 @@
   --dark-15:  rgba(19, 53, 29, .15);
   --dark-22:  rgba(19, 53, 29, .22);
   --dark-30:  rgba(19, 53, 29, .30);
+  --dark-45:  rgba(19, 53, 29, .45);
   --cream-06: rgba(242, 234, 223, .06);
   --cream-40: rgba(242, 234, 223, .40);
   --cream-50: rgba(242, 234, 223, .50);
@@ -59,6 +60,8 @@
   --sh-img:    0 20px 40px rgba(19, 53, 29, .20);
   --sh-cta:    0 8px 24px rgba(19, 53, 29, .28);
   --sh-gold:   0 16px 40px rgba(193, 154, 62, .18);
+  --sh-slot:   0 6px 16px rgba(19, 53, 29, .30);
+  --sh-book:   0 10px 26px rgba(177, 86, 31, .30);
   --sh-badge:  0 8px 20px rgba(177, 86, 31, .40);
 
   /* --- Сетка --- */
@@ -1127,6 +1130,144 @@ button { cursor: pointer; }
   .reviews__head .h2 { font-size: 27px; }
   .review { width: 280px; padding: 22px; }
   .review__text { min-height: 0; }
+}
+
+/* -------------------------- 9. Бронирование ------------------------------ */
+
+.booking { background: var(--white); }
+
+/* Контейнер уже остальных секций — так в макете: виджет не должен
+   расползаться на 1240px. Та же ловушка reset'а, что и на карточке отзыва,
+   только на контейнере: 760px — это ширина содержимого, поля 48px идут
+   сверху. С border-box карточка виджета получается на 96px уже эталона. */
+.booking__inner {
+  box-sizing: content-box;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.booking__head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.booking__eyebrow { margin-bottom: 12px; }
+
+.booking__card {
+  background: var(--cream);
+  border-radius: var(--r-xl);
+  padding: 34px;
+  box-shadow: var(--sh-panel);
+}
+
+.booking__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 14px;
+}
+
+.booking__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.slot {
+  padding: 13px 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark-green);
+  background: var(--white);
+  border: 1px solid var(--dark-22);
+  border-radius: var(--r-2xs);
+  transition: background .15s, color .15s, border-color .15s, box-shadow .15s;
+}
+.slot:hover:not(:disabled):not(.slot--active) { border-color: var(--dark-green); }
+
+.slot--active {
+  background: var(--dark-green);
+  color: var(--cream);
+  border-color: var(--dark-green);
+  box-shadow: var(--sh-slot);
+}
+
+.slot--busy {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.booking__submit {
+  width: 100%;
+  padding: 17px;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  border-radius: var(--r-xs);
+  background: var(--terracotta);
+  color: var(--cream);
+  box-shadow: var(--sh-book);
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+/* Пока день и время не выбраны — кнопка гасится, как в макете */
+.booking__submit:disabled {
+  background: var(--dark-12);
+  color: var(--dark-45);
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Экран успеха — размечается из js/booking.js на Этапе 3 */
+.booking__done {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--lgreen-35);
+  border: 1px solid var(--light-green);
+  border-radius: var(--r-xs);
+  padding: 18px 22px;
+}
+.booking__done-mark {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--dark-green);
+  color: var(--light-green);
+  font-size: 17px;
+}
+.booking__done-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--dark-green);
+}
+
+/* Адаптив «Бронирование» (эталона мобильной версии нет — наше решение).
+   Шесть колонок в сетке слотов живут до 640px: ниже кнопка «12:30»
+   перестаёт помещаться в свои ~54px и текст обрезается. */
+
+@media (max-width: 880px) {
+  .booking__inner { padding-block: 64px; }
+}
+
+@media (max-width: 700px) {
+  .booking__inner { padding-inline: 20px; }
+  .booking__head .h2 { font-size: 32px; }
+}
+
+@media (max-width: 640px) {
+  .booking__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .booking__inner { padding-block: 48px; }
+  .booking__head .h2 { font-size: 27px; }
+  .booking__card { padding: 24px 20px; }
+  .slot { padding: 12px 4px; font-size: 13.5px; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
