@@ -29,6 +29,7 @@
   --cream-40: rgba(242, 234, 223, .40);
   --cream-50: rgba(242, 234, 223, .50);
   --white-50: rgba(255, 255, 255, .50);
+  --cream-95: rgba(242, 234, 223, .95);
   --sage-25:  rgba(177, 200, 122, .25);
   --lgreen-15: rgba(177, 200, 122, .15);
   /* Подложки под иероглифы в карточках методики */
@@ -767,6 +768,127 @@ button { cursor: pointer; }
   .price { padding: 32px 24px; }
   .price__badge { left: 24px; }
   .price__value { font-size: 38px; }
+}
+
+/* --------------------------- 5. Технологии -------------------------------- */
+
+.tech { background: var(--white); }
+.tech__inner { padding-block: 80px; }
+
+.tech__head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.tech__eyebrow { margin-bottom: 12px; }
+.tech__title { margin-bottom: 14px; }
+.tech__lead {
+  font-size: 16px;
+  color: var(--sage);
+}
+
+.tech__grid {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.tech__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.tech__card--dark { background: var(--dark-green); }
+.tech__card--light { background: var(--cream); }
+
+.tech__media { position: relative; }
+.tech__preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  opacity: .92;
+}
+
+/* Скриншот кабинета кадрируется сверху — низ страницы не нужен */
+.tech__shot {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.tech__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tech__play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: var(--cream-95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+}
+/* Треугольник play — рамками, как в макете */
+.tech__play-icon::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 24px solid var(--terracotta);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  margin-left: 6px;
+}
+
+.tech__body { padding: 22px 26px; }
+.tech__card-title {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.tech__card-text {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.tech__card--dark .tech__card-title { color: var(--cream); }
+.tech__card--dark .tech__card-text { color: var(--light-green); }
+.tech__card--light .tech__card-title { color: var(--dark-green); }
+.tech__card--light .tech__card-text { color: var(--sage); }
+
+/* Адаптив «Технологии» (эталона мобильной версии нет — наше решение).
+   Порог 820px: правая карточка уже 300px, и скриншот кабинета в ней
+   превращается в узкую полосу, на которой ничего не разобрать. */
+
+@media (max-width: 880px) {
+  .tech__inner { padding-block: 64px; }
+  .tech__head { margin-bottom: 32px; }
+}
+
+@media (max-width: 820px) {
+  .tech__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .tech__title { font-size: 32px; }
+  .tech__lead { font-size: 15px; }
+}
+
+@media (max-width: 520px) {
+  .tech__inner { padding-block: 48px; }
+  .tech__title { font-size: 27px; }
+  .tech__body { padding: 18px 20px; }
+  .tech__play-icon { width: 64px; height: 64px; }
+  .tech__play-icon::before {
+    border-left-width: 19px;
+    border-top-width: 12px;
+    border-bottom-width: 12px;
+  }
 }
 
 /* --------------------------- 6. Результаты -------------------------------- */
