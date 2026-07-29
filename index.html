@@ -3,8 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Тимур — преподаватель китайского языка</title>
-<meta name="description" content="Уже через месяц занятий вы прочитаете свой первый китайский комикс. Онлайн-уроки китайского языка. Пробный урок бесплатно.">
+<title>Тимур — преподаватель китайского языка · онлайн-уроки</title>
+<meta name="description" content="Уже через месяц занятий вы прочитаете свой первый китайский комикс. Онлайн-уроки китайского языка: педобразование, 10+ лет преподавания, опыт в НГУ. Пробный урок бесплатно.">
+<meta name="theme-color" content="#F2EADF">
+
+<!-- Превью при отправке ссылки в мессенджер (Этап 5.1). Адрес — GitHub
+     Pages, пока не куплен домен: og:url и og:image обязаны быть
+     абсолютными, относительный путь мессенджеры не разворачивают.
+     Обложка собирается из tools/og-template.html: node tools/make-og.js -->
+<link rel="canonical" href="https://tiemulaoshi.github.io/teacher-site/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Тимур · преподаватель китайского">
+<meta property="og:url" content="https://tiemulaoshi.github.io/teacher-site/">
+<meta property="og:title" content="Тимур — преподаватель китайского языка">
+<meta property="og:description" content="Уже через месяц занятий вы прочитаете свой первый китайский комикс. Пробный урок — бесплатно, 30 минут онлайн.">
+<meta property="og:image" content="https://tiemulaoshi.github.io/teacher-site/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Тимур, преподаватель китайского языка">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,7 +169,7 @@
       <div class="tech__grid">
         <article class="tech__card tech__card--dark">
           <div class="tech__media">
-            <img class="tech__preview" src="assets/img/alias-game-preview.jpg"
+            <img class="tech__preview" src="assets/img/alias-game-preview.webp"
                  alt="Кадр из авторской Alias-игры для изучения китайского" loading="lazy">
             <!-- TODO: ссылки на видео пока нет (см. «Открытые вопросы» в
                  CLAUDE.md). Кнопка нарисована, но намеренно не кликабельна —
@@ -167,7 +185,7 @@
         </article>
 
         <article class="tech__card tech__card--light">
-          <img class="tech__shot" src="assets/img/student-cabinet.png"
+          <img class="tech__shot" src="assets/img/student-cabinet.webp"
                alt="Личный кабинет ученика: прогресс урока и задания" loading="lazy">
           <div class="tech__body">
             <h3 class="tech__card-title">Личный кабинет ученика</h3>
@@ -346,9 +364,12 @@
       <p class="cta__lead">Обсудим ваши цели, и я расскажу, как мы будем их достигать!</p>
 
       <div class="cta__actions">
-        <!-- TODO: заглушки из макета — нужны реальные ссылки от Тимура -->
-        <a class="btn btn--md btn--gold" href="https://t.me/username">Telegram</a>
-        <a class="btn btn--md btn--ghost" href="https://wa.me/70000000000">WhatsApp</a>
+        <!-- Мессенджеры открываются в новой вкладке: с телефона это уход в
+             приложение, и возвращаться на страницу человеку уже некуда -->
+        <a class="btn btn--md btn--gold" href="https://t.me/TiemuLaoshi"
+           target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn--md btn--ghost" href="https://wa.me/79138903650"
+           target="_blank" rel="noopener">WhatsApp</a>
       </div>
 
       <p class="cta__copy">© 2026 Тимур · преподаватель китайского языка</p>

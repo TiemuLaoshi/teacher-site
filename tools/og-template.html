@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<!-- Шаблон обложки для превью ссылки в мессенджерах (Этап 5.1).
+     Рендерится в assets/img/og-cover.jpg скриптом tools/make-og.js.
+     Токены и шрифты — те же, что на сайте; текст заголовка дословный из ТЗ. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@600;700&family=Noto+Serif+SC:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 1200px; height: 630px;
+    background: #F2EADF;
+    font-family: 'Manrope', sans-serif;
+    display: flex; align-items: center;
+    overflow: hidden; position: relative;
+  }
+
+  /* Декоративный иероглиф — как в Hero */
+  .glyph {
+    position: absolute; left: -30px; top: 40px;
+    font-family: 'Noto Serif SC', serif; font-size: 300px; line-height: 1;
+    color: #13351D; opacity: .06;
+  }
+
+  .content { width: 660px; padding: 0 0 0 72px; position: relative; }
+
+  .eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 17px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: #B1561F; margin-bottom: 26px;
+  }
+  .eyebrow i { width: 34px; height: 2px; background: currentColor; }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: 62px; line-height: 1.1; color: #13351D;
+  }
+
+  .name {
+    margin-top: 30px; font-size: 22px; font-weight: 700; color: #13351D;
+  }
+  .name span { color: #B1561F; font-family: 'Noto Serif SC', serif; }
+
+  .chips { display: flex; gap: 12px; margin-top: 30px; }
+  .chips li {
+    list-style: none; white-space: nowrap;
+    font-size: 16px; font-weight: 600; color: #13351D;
+    background: rgba(19,53,29,.07); border: 1px solid rgba(19,53,29,.14);
+    padding: 11px 18px; border-radius: 999px;
+  }
+
+  /* Фото — тот же приём, что в Hero: белая рамка и золотой круг за ней */
+  .media { position: relative; margin-left: 40px; }
+  .circle {
+    position: absolute; top: -26px; right: -22px; width: 210px; height: 210px;
+    border-radius: 50%; background: linear-gradient(135deg,#E3C36C,#C19A3E); opacity: .9;
+  }
+  .photo {
+    position: relative; display: block; width: 340px; height: 470px;
+    object-fit: cover; object-position: center top;
+    border: 8px solid #fff; border-radius: 26px;
+    box-shadow: 0 24px 48px rgba(19,53,29,.25);
+  }
+</style>
+</head>
+<body>
+  <span class="glyph">学</span>
+
+  <div class="content">
+    <p class="eyebrow"><i></i>Китайский язык онлайн</p>
+    <h1>Уже через месяц занятий вы прочитаете свой первый китайский комикс</h1>
+    <p class="name">Тимур · преподаватель китайского <span>中文</span></p>
+    <ul class="chips">
+      <li>10+ лет преподавания</li>
+      <li>Преподавал в НГУ</li>
+      <li>Жил в Китае</li>
+    </ul>
+  </div>
+
+  <div class="media">
+    <span class="circle"></span>
+    <img class="photo" src="../assets/img/timur.webp" alt="">
+  </div>
+</body>
+</html>
