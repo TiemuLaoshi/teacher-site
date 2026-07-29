@@ -43,8 +43,32 @@ function arg(name, fallback) {
   const browser = await puppeteer.launch({ executablePath, headless: 'new' });
   const page = await browser.newPage();
   await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
+
+  // По умолчанию снимаем как «уменьшенное движение»: появления при скролле,
+  // счётчики и лента отзывов тогда стоят в конечном состоянии, и кадр
+  // сравним с эталоном. Без этого на fullPage-снимке блоки ниже экрана
+  // попадают в кадр непроявленными. --motion 1 — снять живую страницу.
+  if (!arg('motion', null)) {
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ]);
+  }
+
   await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
+
+  // Прокрутить страницу до конца и вернуться наверх: без этого картинки с
+  // loading="lazy" на первом (холодном) запуске не успевают декодироваться и
+  // попадают в fullPage-кадр пустыми — сравнение врёт на несколько процентов.
+  await page.evaluate(async () => {
+    const step = window.innerHeight;
+    for (let y = 0; y < document.body.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 50));
+    }
+    window.scrollTo(0, 0);
+    await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
+  });
   // Дать доиграть входным анимациям (fadeUp ~.8s), иначе в кадр попадёт
   // недоигранный кадр и сравнение с эталоном будет ложно расходиться.
   await new Promise((r) => setTimeout(r, Number(arg('settle', 1000))));
