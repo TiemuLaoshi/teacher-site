@@ -26,7 +26,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<!-- Cormorant используется только в 600, Manrope — в 400/600/700/800.
+     Лишние начертания из запроса убраны: каждое это отдельный woff2. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Noto Serif SC отдельным запросом и подмножеством: параметр text= отдаёт
+     шрифт ровно из перечисленных знаков. Целиком это 300 КБ шрифта и ещё
+     200 КБ CSS с сотнями @font-face — ради 14 иероглифов на всю страницу.
+     ⚠️ Появится новый иероглиф в разметке — добавить его сюда же, иначе он
+     отрисуется системным шрифтом. Список: 中文学语你好国字法说证书加油 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400&text=%E4%B8%AD%E6%96%87%E5%AD%A6%E8%AF%AD%E4%BD%A0%E5%A5%BD%E5%9B%BD%E5%AD%97%E6%B3%95%E8%AF%B4%E8%AF%81%E4%B9%A6%E5%8A%A0%E6%B2%B9&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
