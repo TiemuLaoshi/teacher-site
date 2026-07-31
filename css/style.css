@@ -1234,6 +1234,73 @@ button { cursor: pointer; }
   cursor: default;
 }
 
+/* ── Форма заявки (Этап 3.2) ───────────────────────────────────────────────
+   В макете этих элементов нет: дизайнер нарисовал только выбор дня и
+   времени. Но POST /api/book требует имя и контакт, поэтому форма
+   разворачивается из js/booking.js после выбора слота. До этого момента
+   блок выглядит ровно как в макете — пиксельная сверка Этапа 1.10 цела.
+   Стили собраны из существующих токенов, новых сущностей не заводим. */
+.booking__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+/* Явный display перебивает атрибут hidden — без этой строки форма видна
+   до выбора слота. */
+.booking__form[hidden] { display: none; }
+
+.booking__field {
+  display: block;
+  min-width: 0;   /* иначе поле распирает колонку сетки на узких экранах */
+}
+
+.booking__field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 7px;
+}
+
+.booking__field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--dark-green);
+  background: var(--white);
+  border: 1px solid var(--dark-22);
+  border-radius: var(--r-2xs);
+  transition: border-color .15s, box-shadow .15s;
+}
+.booking__field input::placeholder { color: var(--dark-45); }
+.booking__field input:hover { border-color: var(--dark-30); }
+.booking__field input:focus {
+  outline: none;
+  border-color: var(--dark-green);
+  box-shadow: 0 0 0 3px var(--lgreen-35);
+}
+
+/* Ловушка для спам-ботов: убрана из потока, из фокуса и от скринридеров.
+   display:none не годится — часть ботов такие поля пропускает. */
+.booking__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.booking__error {
+  grid-column: 1 / -1;
+  margin: -4px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--terracotta);
+}
+
 /* Экран успеха — размечается из js/booking.js на Этапе 3 */
 .booking__done {
   display: flex;
@@ -1262,6 +1329,41 @@ button { cursor: pointer; }
   color: var(--dark-green);
 }
 
+/* ── Запасной вариант, когда API недоступен (Этап 3.2) ─────────────────────
+   Виджет не показывает мёртвую сетку и не пишет «что-то пошло не так»,
+   а превращается в рабочий способ связаться. Собран из готовых .btn. */
+.booking__fallback-text {
+  margin: 8px 0 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sage);
+}
+
+.booking__fallback-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Вторая кнопка запасного варианта. Готовый .btn--ghost не подошёл: он
+   салатовый и рассчитан на тёмную секцию, а карточка виджета кремовая. */
+.booking__btn-line {
+  padding: 14px 32px;   /* рамка 2px добирает остальное — высота как у .btn--md */
+  background: transparent;
+  border: 2px solid var(--dark-green);
+  color: var(--dark-green);
+}
+.booking__btn-line:hover { background: var(--dark-07); }
+
+.booking__fallback-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--terracotta);
+}
+.booking__fallback-link:hover { text-decoration: underline; }
+
 /* Адаптив «Бронирование» (эталона мобильной версии нет — наше решение).
    Шесть колонок в сетке слотов живут до 640px: ниже кнопка «12:30»
    перестаёт помещаться в свои ~54px и текст обрезается. */
@@ -1277,6 +1379,8 @@ button { cursor: pointer; }
 
 @media (max-width: 640px) {
   .booking__grid { grid-template-columns: repeat(3, 1fr); }
+  /* Два поля рядом дают ~130px на каждое — «@nickname или +7…» не влезает */
+  .booking__form { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 520px) {
@@ -1284,6 +1388,8 @@ button { cursor: pointer; }
   .booking__head .h2 { font-size: 27px; }
   .booking__card { padding: 24px 20px; }
   .slot { padding: 12px 4px; font-size: 13.5px; }
+  .booking__fallback-row { flex-direction: column; }
+  .booking__fallback-row .btn { width: 100%; }
 }
 
 /* ------------------------ 10. Финальный CTA ------------------------------ */
