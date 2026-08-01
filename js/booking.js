@@ -22,7 +22,10 @@
   'use strict';
 
   // ─── Настройки ─────────────────────────────────────────────────────────────
-  const API = 'https://teacher-bot-production-4e0f.up.railway.app';
+  // Собственный поддомен сайта записи (Railway, 01.08.2026). Прежний адрес
+  // teacher-bot-production-4e0f.up.railway.app остаётся рабочим — Railway
+  // его не отбирает, так что старые ссылки не сломались.
+  const API = 'https://zapis.tiemulaoshi.ru';
   const DAYS_AHEAD = 14;     // сколько дней расписания просить у API
   const DAY_BUTTONS = 6;     // столько кнопок дней в сетке макета
   const TIMEOUT_MS = 12000;  // Railway после простоя отвечает не сразу
