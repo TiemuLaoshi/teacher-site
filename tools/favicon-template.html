@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<!-- Один иероглиф — отдельным подмножеством, как и на самой странице.
+     В шапке сайта стоит 中文, но два знака в 16px превращаются в кашу,
+     поэтому в иконке только 中. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600&text=%E4%B8%AD&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 512px;
+    height: 512px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Фон во всю плитку: iOS скругляет apple-touch-icon сам, а браузерная
+       вкладка показывает квадрат — своё скругление тут только мешает. */
+    background: #13351D;
+  }
+  span {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 600;
+    /* 330 из 512 — знак не упирается в края плитки, но в 32px ещё читается */
+    font-size: 330px;
+    line-height: 1;
+    color: #F2EADF;
+    /* Иероглиф в шрифте стоит не по центру кегля — правим оптически,
+       иначе в 32px заметен перекос вниз. */
+    transform: translateY(-2%);
+  }
+</style>
+</head>
+<body><span>中</span></body>
+</html>
