@@ -201,7 +201,10 @@
     const wrap = el('label', 'booking__field');
     wrap.htmlFor = id;
     wrap.appendChild(el('span', 'booking__field-label', labelText));
-    const input = el('input');
+    // ym-disable-keys — Вебвизор Яндекс.Метрики покажет в записи сессии
+    // звёздочки вместо того, что человек напечатал. Здесь это имя и
+    // телефон, они не должны лежать в чужих записях.
+    const input = el('input', 'ym-disable-keys');
     input.type = 'text';
     input.id = id;
     input.placeholder = placeholder;
@@ -292,6 +295,7 @@
         return;
       }
 
+      reachGoal();
       showDone(name);
     } catch (e) {
       sending = false;
@@ -302,6 +306,20 @@
     } finally {
       clearTimeout(timer);
     }
+  }
+
+  // Отметка «заявка отправлена» для Яндекс.Метрики. Без неё в отчётах видно
+  // только сколько людей пришло, но не сколько записалось — то есть главную
+  // цифру лендинга. Номер счётчика ставит index.html, чтобы он был в одном
+  // месте; нет счётчика (блокировщик, локальная разработка) — молча пропуск.
+  // ⚠️ Цель `booking_sent` нужно один раз завести в интерфейсе Метрики:
+  // Настройки → Цели → Добавить цель → тип «JavaScript-событие».
+  function reachGoal() {
+    try {
+      if (typeof window.ym === 'function' && window.YM_COUNTER_ID) {
+        window.ym(window.YM_COUNTER_ID, 'reachGoal', 'booking_sent');
+      }
+    } catch (e) { /* аналитика не должна мешать заявке */ }
   }
 
   // Перечитать расписание после отказа «слот только что заняли»

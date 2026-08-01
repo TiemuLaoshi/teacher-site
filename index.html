@@ -44,6 +44,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400&text=%E4%B8%AD%E6%96%87%E5%AD%A6%E8%AF%AD%E4%BD%A0%E5%A5%BD%E5%9B%BD%E5%AD%97%E6%B3%95%E8%AF%B4%E8%AF%81%E4%B9%A6%E5%8A%A0%E6%B2%B9&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Яндекс.Метрика (Этап 5.2). Счётчик «Сайт-визитка», номер 111209396.
+     Скрипт асинхронный — отрисовку страницы не задерживает.
+
+     ⚠️ Вебвизор записывает и заполнение форм. Метрика сама маскирует поля,
+     которые распознала как чувствительные, но наши — обычные текстовые
+     («Имя», «@nickname или +7…»), и полагаться на автоматику нельзя:
+     в js/booking.js на них проставлен класс ym-disable-keys, он заменяет
+     введённое звёздочками. Добавляешь новое поле в форму — ставь класс,
+     иначе чужие телефоны попадут в записи сессий. -->
+<script type="text/javascript">
+    // Номер счётчика в одном месте: его же берёт js/booking.js для цели
+    window.YM_COUNTER_ID = 111209396;
+
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111209396', 'ym');
+
+    ym(111209396, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111209396" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
 
